@@ -1,0 +1,151 @@
+.teamSection {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: transparent;
+
+    @media (min-width: 768px) {
+        height: 100svh;
+        aspect-ratio: unset;
+    }
+
+    @media (min-width: 1200px) {
+        height: 300svh;
+    }
+}
+
+.teamContent {
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    @media (min-width: 1200px) {
+        position: sticky;
+        top: 0;
+        left: 0;
+        height: 100svh;
+    }
+}
+
+.teamCards {
+    --last-index: calc(var(--total-items) - 1);
+    --width: 25.5rem;
+    --height: 27.8rem;
+    --stack-gap: 2.4rem;
+    margin-bottom: 1.6rem;
+    width: var(--width);
+    height: var(--height);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    z-index: 2;
+
+    @media (min-width: 768px) {
+        --width: 33.3rem;
+        --height: 36.4rem;
+        --stack-gap: 3.2rem;
+        margin-bottom: 3.2rem;
+    }
+
+    @media (min-width: 1200px) {
+        --width: 50.4rem;
+        --height: 55rem;
+        --stack-gap: 3.2rem;
+    }
+
+    & > * {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+    }
+}
+
+.teamCardsItem {
+    --offset-step: calc(100% + var(--stack-gap, 3.2rem));
+    --rel-pos: calc(var(--index) - var(--progress, 0) * var(--last-index));
+    --offset-x: calc(var(--offset-step) * var(--rel-pos));
+    --offset-y: calc(var(--offset-step) * var(--rel-pos));
+    width: var(--width);
+    height: var(--height);
+    flex-shrink: 0;
+    position: relative;
+    will-change: transform;
+    transform: translateX(var(--offset-x)) translateY(var(--offset-y)) translateZ(0);
+}
+
+.teamCardsItemScene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #1a1d2e;
+}
+
+.teamCardsItemSceneObj {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.teamInfo {
+    position: absolute;
+    right: 3.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25.5rem;
+    z-index: 3;
+    pointer-events: none;
+
+    @media (min-width: 768px) {
+        width: 33.3rem;
+        right: 5.6rem;
+    }
+
+    @media (min-width: 1200px) {
+        width: 32rem;
+        right: 15rem;
+    }
+}
+
+.teamInfoDescriptionsItem {
+    width: 100%;
+
+    p {
+        font: 400 1.4rem/1.4em var(--font-twk);
+        letter-spacing: -0.028rem;
+        color: var(--color-text-secondary, #fff);
+        margin: 0;
+
+        @media (min-width: 768px) {
+            font: 400 1.6rem/1.4em var(--font-twk);
+            letter-spacing: -0.032rem;
+        }
+    }
+}
+
+.teamSectionIndex {
+    position: absolute;
+    bottom: -5rem;
+    left: 5rem;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.teamSectionIndexNum {
+    font-size: 30rem;
+    font-family: var(--font-twk);
+    color: var(--brand-yellow, #fff);
+    font-weight: bold;
+    line-height: 1;
+}

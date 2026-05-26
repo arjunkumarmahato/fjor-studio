@@ -1,0 +1,63 @@
+.sidebarWrapper {
+    position: fixed;
+    left: 4vw;
+    top: 40vh;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 100;
+    pointer-events: none; // Keeps user click clicks functional on the page
+    user-select: none;
+
+    @media (max-width: 992px) {
+        display: none; // Hides left vertical index layout on mobile screens
+    }
+}
+
+.sidebarItem {
+    height: 16px;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.dimNum {
+    font-family: "Eiko Regular Italic", serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.16);
+    transition: color 0.5s var(--transition-fast);
+}
+
+.itemActive {
+    .dimNum {
+        color: var(--color-accent); // Champagne highlight
+    }
+}
+
+.activeLabel {
+    font-family: "Eiko Regular Italic", serif;
+    font-style: italic;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--color-accent); // Golden accent
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    text-transform: capitalize;
+    animation: slideIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

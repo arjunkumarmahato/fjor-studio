@@ -1,0 +1,131 @@
+.intakeSection {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--pd-xl) var(--pd-lg);
+
+    @media (max-width: 1024px) {
+        padding: 5rem 3rem;
+    }
+
+    @media (max-width: 768px) {
+        padding: 3rem 1.5rem;
+        min-height: auto;
+        padding-bottom: 5rem; // Make room for footer
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 60px;
+}
+
+.massiveTitle {
+    font-family: "Romie Regular", serif;
+    font-size: 7vw;
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin: 0;
+    
+    @media (max-width: 992px) {
+        font-size: 3.5rem;
+    }
+}
+
+.gateCopy {
+    font-family: "Neue Montreal Regular", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    max-width: 60ch; // Very strict reading width
+    margin: 0;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
+}
+
+.buttonWrapper {
+    margin-top: 20px;
+}
+
+.inquiryButton {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    padding: 24px 48px;
+    cursor: none; // Managed by custom cursor
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-text-primary);
+        transform: translateY(100%);
+        transition: transform var(--transition-normal);
+        z-index: 0;
+    }
+
+    &:hover {
+        border-color: var(--color-text-primary);
+        
+        &::before {
+            transform: translateY(0);
+        }
+        
+        .buttonText {
+            color: var(--color-bg-primary); // Invert text on hover
+        }
+    }
+}
+
+.buttonText {
+    position: relative;
+    z-index: 1;
+    font-family: "Roboto Mono Regular", monospace;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--color-text-primary);
+    transition: color var(--transition-normal);
+}
+
+.footerCredits {
+    position: absolute;
+    bottom: var(--pd-md);
+    left: var(--pd-lg);
+    right: var(--pd-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.monoCredit {
+    font-family: "Roboto Mono Regular", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}

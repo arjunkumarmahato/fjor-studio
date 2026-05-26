@@ -1,0 +1,76 @@
+.sectionIndicator {
+    position: fixed;
+    left: 4vw;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    @media (max-width: 992px) {
+        display: none; // Hidden on smaller viewports
+    }
+}
+
+.visible {
+    opacity: 1;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    line-height: 1;
+    font-family: var(--font-twk);
+    color: rgba(255, 255, 255, 0.25);
+    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.active {
+    color: var(--brand-yellow); // Gold/cream active by default
+    font-weight: 500;
+    
+    &[data-section="what_we_do"] {
+        color: #5ce1e6; // Cyan/blue matching Capabilities screenshot
+    }
+}
+
+.number {
+    width: 1.2rem;
+    display: inline-block;
+    text-align: left;
+}
+
+.dash {
+    margin: 0 0.8rem;
+    color: inherit;
+    opacity: 0.6;
+}
+
+.name {
+    font-family: var(--font-herbik);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: inherit;
+    text-transform: none; // Match sentence case in screenshots
+    animation: slideInName 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInName {
+    from {
+        opacity: 0;
+        transform: translateX(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,30 @@
+.footerWrap {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 2rem;
+    overflow: hidden;
+}
+
+.footerContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.emailAddress {
+    width: 100%;
+    font-family: var(--font-twk);
+    font-size: clamp(1rem, 7vw, 8rem);
+    font-weight: 800;
+    line-height: 0.92;
+    color: var(--brand-yellow);
+    letter-spacing: 0;
+    text-transform: none;
+    white-space: nowrap;
+}

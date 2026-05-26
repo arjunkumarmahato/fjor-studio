@@ -1,0 +1,42 @@
+.linkEffectWrapper {
+    display: inline-flex;
+    overflow: clip;
+    cursor: none; // Handled by global custom cursor
+}
+
+.inner {
+    display: block;
+    position: relative;
+    will-change: transform;
+}
+
+.text {
+    display: block;
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.textClone {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+// When hovering the parent wrapper, or anything containing it if we apply group hover
+// To make it flexible, we'll apply hover to the wrapper itself, but in practice, 
+// a parent link element might trigger it. We'll use CSS nesting for parent triggers if needed.
+// By default, hover on the wrapper works.
+.linkEffectWrapper:hover,
+a:hover .linkEffectWrapper,
+button:hover .linkEffectWrapper {
+    .text {
+        transform: translateY(-100%);
+    }
+    
+    .textClone {
+        transform: translateY(-100%);
+    }
+}

@@ -1,0 +1,86 @@
+.clientsSection {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--pd-xl) var(--pd-lg);
+    overflow: hidden;
+
+    @media (max-width: 1024px) {
+        padding: 5rem 3rem;
+    }
+
+    @media (max-width: 768px) {
+        padding: 3rem 1.5rem;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+/* Section Index */
+.sectionIndex {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12vh;
+    opacity: 0; // Starts hidden for GSAP reveal
+}
+
+.indexNum, .indexDash {
+    font-family: "Eiko Regular Italic", serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.indexName {
+    font-family: "Neue Montreal Regular", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Clients Grid */
+.clientsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 4vw;
+    row-gap: 5vh;
+    width: 100%;
+    
+    @media (max-width: 992px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.clientItem {
+    font-family: "Neue Montreal Regular", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.2;
+    transition: color 0.4s ease;
+    cursor: none;
+    
+    &:hover {
+        color: #ffffff;
+    }
+
+    @media (max-width: 992px) {
+        font-size: 1.5rem;
+    }
+}

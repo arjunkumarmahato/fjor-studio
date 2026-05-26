@@ -1,0 +1,14 @@
+.loader {
+    z-index: 9999;
+    position: fixed;
+    inset: 0;
+    padding: var(--pd-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-bg-primary);
+
+    @media screen and (min-width: 768px) {
+        padding: var(--pd-lg);
+    }
+}

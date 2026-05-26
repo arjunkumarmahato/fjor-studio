@@ -1,0 +1,294 @@
+:root {
+  --color-bg-primary: #040404; // Vantablack
+  --color-bg-secondary: #0a0a0c; // Charcoal Secondary
+  --color-bg-tertiary: #111115;
+  --color-bg-glass: rgba(255, 255, 255, 0.03);
+  --color-bg-glass-dark: rgba(0, 0, 0, 0.8);
+
+  --color-text-primary: #EDEDED; // Off-White
+  --color-text-secondary: #8A8A93; // Titanium Gray
+  --color-text-tertiary: #55555c;
+  --color-text-glass: rgba(255, 255, 255, 0.08);
+
+  --color-accent: #E5D5C5; // Keep Champagne Gold for extremely subtle highlights if needed
+  --color-border: rgba(255, 255, 255, 0.05); // Hairline divider
+
+  --pd-xs: 0.5rem;
+  --pd-sm: 1rem;
+  --pd-md: 2rem;
+  --pd-lg: 4rem;
+  --pd-xl: 8rem;
+
+  --box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  --box-shadow-glow: 0 0 40px rgba(229, 213, 197, 0.04);
+
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --font-twk: "Spezia Normal Medium", "Neue Montreal Regular", sans-serif;
+  --font-herbik: "Eiko Regular Italic", "PP Editorial New", serif;
+  --easeOutQuart: cubic-bezier(0.25, 1, 0.5, 1);
+  --brand-yellow: #fffae6;
+  --brand-dark-blue: #0b1a26;
+}
+
+@font-face {
+  font-family: "Romie Regular";
+  src: url("/fonts/romie-regular.woff2");
+}
+
+@font-face {
+  font-family: "Beaufort Regular";
+  src: url("/fonts/beaufort-regular.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP Cirka";
+  src: url("/fonts/PPCirka-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Halimun";
+  src: url("/fonts/halimun.ttf");
+}
+
+@font-face {
+  font-family: "Boldpen";
+  src: url("/fonts/boldpen.otf");
+}
+
+@font-face {
+  font-family: "Purelines";
+  src: url("/fonts/purelines.ttf");
+}
+
+@font-face {
+  font-family: "Arnika Regular";
+  src: url("/fonts/arnika-regular.ttf");
+}
+
+@font-face {
+  font-family: "Fragment Mono Regular";
+  src: url("/fonts/fragment-mono-regular.woff2");
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew-Ultrabold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew-UltraboldItalic.otf") format("opentype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew-Ultralight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("/fonts/PPEditorialNew-UltralightItalic.otf") format("opentype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Eiko Regular Italic";
+  src: url("/fonts/eiko-regular-italic.woff2") format("opentype");
+}
+
+@font-face {
+  font-family: "Neue Montreal Regular";
+  src: url("/fonts/neue-montreal-regular.woff2");
+}
+
+@font-face {
+  font-family: "Neue Montreal Light";
+  src: url("/fonts/neue-montreal-light.woff2");
+}
+
+@font-face {
+  font-family: "Lock Serif Light";
+  src: url("/fonts/lock-serif-light.ttf");
+}
+
+@font-face {
+  font-family: "Simula";
+  src: url("/fonts/simula.ttf");
+}
+
+@font-face {
+  font-family: "Aeonik Regular";
+  src: url("/fonts/aeonik-regular.woff2");
+}
+
+@font-face {
+  font-family: "Aeonik Medium";
+  src: url("/fonts/aeonik-medium.woff2");
+}
+
+@font-face {
+  font-family: "Aeonik Mono Regular";
+  src: url("/fonts/aeonik-mono-regular.woff2");
+}
+
+@font-face {
+  font-family: "Amiga Mono Regular";
+  src: url("/fonts/amiga-mono-regular.woff");
+}
+
+@font-face {
+  font-family: "Gridular Regular";
+  src: url("/fonts/gridular-regular.woff2");
+}
+
+@font-face {
+  font-family: "IBF";
+  src: url("/fonts/ibf.woff2");
+}
+
+@font-face {
+  font-family: "Romie Regular";
+  src: url("/fonts/romie-regular.woff2");
+}
+
+@font-face {
+  font-family: "Roboto Mono Regular";
+  src: url("/fonts/roboto-mono-regular.ttf");
+}
+
+@font-face {
+  font-family: "Monoska";
+  src: url("/fonts/monoska.woff2");
+}
+
+@font-face {
+  font-family: "Spezia Mono Medium";
+  src: url("/fonts/spezia-mono-medium.woff2");
+}
+
+@font-face {
+  font-family: "Spezia Narrow Semibold";
+  src: url("/fonts/spezia-narrow-semibold.woff2");
+}
+
+@font-face {
+  font-family: "Spezia Normal Medium";
+  src: url("/fonts/spezia-normal-medium.woff2");
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Neue Montreal Light", "Neue Montreal Regular", Helvetica, sans-serif;
+}
+
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+html,
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  font-size: 16px;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+
+  /* Hide Scrollbar for Chrome, Safari, and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide Scrollbar for IE, Edge, and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (pointer: fine) {
+    cursor: none;
+
+    * {
+      cursor: none !important;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+
+.sectionLabel {
+  position: absolute;
+  top: 4.5rem;
+  left: 50%;
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: calc(100vw - 3rem);
+  transform: translateX(-50%);
+  font-family: "Neue Montreal Light", "Neue Montreal Regular", sans-serif;
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--brand-yellow);
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+
+  @media (max-width: 768px) {
+    top: 4.25rem;
+  }
+}

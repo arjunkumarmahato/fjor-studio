@@ -1,0 +1,317 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    z-index: 1000;
+    pointer-events: none; // Allow underlying page clicks
+
+    * {
+        pointer-events: auto;
+    }
+
+    @media (max-width: 768px) {
+        padding: 1rem 1.5rem;
+    }
+}
+
+.navContact {
+    z-index: 1001;
+}
+
+.chatLink {
+    font-family: "Neue Montreal Light", "Neue Montreal Regular", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #040404;
+    background-color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    gap: 4px;
+
+    &:hover {
+        background-color: #ededed;
+
+        .chatArrow {
+            transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .arrow1 {
+            transform: translateX(150%);
+        }
+
+        .arrow2 {
+            transform: translateX(0);
+        }
+    }
+}
+
+.arrowWrapper {
+    position: relative;
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.chatArrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    color: #040404;
+    will-change: transform;
+    flex-shrink: 0;
+
+    &.arrow1 {
+        transform: translateX(0);
+    }
+
+    &.arrow2 {
+        transform: translateX(-150%);
+    }
+}
+
+.navLogo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1001;
+
+    // font-family: var(--font-herbik);
+    // font-style: italic;
+    font-size: 2.1rem;
+    font-weight: 400;
+    color: #fff;
+    user-select: none;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    img {
+        filter: invert(1);
+        height: 24px;
+    }
+
+
+}
+
+.menuWrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1001;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+    }
+}
+
+.navToggler {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    z-index: 1001;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    position: relative;
+
+    @media (max-width: 768px) {
+        padding: 0.6rem;
+    }
+}
+
+.dottedGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 4px);
+    grid-template-rows: repeat(3, 4px);
+    gap: 4px;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.dot {
+    display: block;
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+    will-change: opacity;
+    transition: opacity 0.3s ease;
+
+    // Clockwise staggered delay wave transition (snappy and state-of-the-art)
+    &:nth-child(1) {
+        transition-delay: 0.0s;
+    }
+
+    &:nth-child(2) {
+        transition-delay: 0.04s;
+    }
+
+    &:nth-child(3) {
+        transition-delay: 0.08s;
+    }
+
+    &:nth-child(6) {
+        transition-delay: 0.12s;
+    }
+
+    &:nth-child(9) {
+        transition-delay: 0.16s;
+    }
+
+    &:nth-child(8) {
+        transition-delay: 0.20s;
+    }
+
+    &:nth-child(7) {
+        transition-delay: 0.24s;
+    }
+
+    &:nth-child(4) {
+        transition-delay: 0.28s;
+    }
+
+    &:nth-child(5) {
+        transition-delay: 0.0s;
+    }
+
+    // center is static
+
+    // Diagonals (X pattern) start dimmed
+    &:nth-child(1),
+    &:nth-child(3),
+    &:nth-child(7),
+    &:nth-child(9) {
+        opacity: 0.3;
+    }
+
+    // Orthogonals start fully visible
+    &:nth-child(2),
+    &:nth-child(4),
+    &:nth-child(6),
+    &:nth-child(8) {
+        opacity: 1;
+    }
+
+    // Center is always visible
+    &:nth-child(5) {
+        opacity: 1;
+    }
+}
+
+.togglerText {
+    font-family: "Neue Montreal Light", "Neue Montreal Regular", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.03em;
+    user-select: none;
+    pointer-events: none;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.simpleMenu {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 12rem;
+    padding: 0.7rem;
+    transform: translate(-50%, -0.4rem);
+    border: 1px solid rgba(255, 250, 230, 0.2);
+    border-radius: 8px;
+    background: rgba(4, 4, 4, 0.9);
+    box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.32);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    backdrop-filter: blur(18px);
+
+    button {
+        width: 100%;
+        padding: 0.75rem 0.85rem;
+        border-radius: 5px;
+        font-family: "Neue Montreal Light", "Neue Montreal Regular", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.03em;
+        text-align: left;
+        text-transform: uppercase;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: color 0.2s ease, background-color 0.2s ease;
+
+        &:hover {
+            color: #040404;
+            background-color: var(--brand-yellow);
+        }
+    }
+}
+
+.simpleMenuOpen {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.open {
+    .dot {
+
+        // Diagonals (X pattern) become active
+        &:nth-child(1),
+        &:nth-child(3),
+        &:nth-child(7),
+        &:nth-child(9) {
+            opacity: 1;
+        }
+
+        // Orthogonals become dimmed
+        &:nth-child(2),
+        &:nth-child(4),
+        &:nth-child(6),
+        &:nth-child(8) {
+            opacity: 0.3;
+        }
+    }
+}

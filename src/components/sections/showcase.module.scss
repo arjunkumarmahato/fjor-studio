@@ -1,0 +1,406 @@
+.sectionDetector {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    color: var(--color-text-primary);
+}
+
+.showcase {
+    position: relative;
+    width: 100%;
+    height: auto;
+    color: var(--color-text-primary);
+}
+
+.projectBlock {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    @media (max-width: 1199px) {
+        height: auto;
+        overflow: visible;
+    }
+}
+
+.showcaseContent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 40;
+
+    @media (max-width: 1199px) {
+        height: auto;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Left Column: Project Name inside Service Roles Wrapper */
+.showcaseNames {
+    pointer-events: none !important;
+    user-select: none !important;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 25;
+
+    @media (max-width: 1199px) {
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+    }
+}
+
+.titleLineOuter {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+}
+
+.titleLineInner {
+    display: block;
+}
+
+.showcaseNamesName {
+    pointer-events: none !important;
+    visibility: visible !important;
+    font-family: var(--font-twk);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-size: 7.2vw;
+    line-height: 0.92;
+    letter-spacing: normal; // Normal letter spacing
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    @media (min-width: 1200px) {
+        font-size: 2.6rem; // Refined further for compact, premium editorial appearance
+    }
+
+    @media (max-width: 1199px) {
+        font-size: 1.8rem; // Refined further for clean mobile presentation
+        line-height: 1.05;
+        text-align: center;
+    }
+}
+
+/* Center Column: Cinematic Thumbnail Image */
+.showcaseThumbnails {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44vw;
+    max-width: 800px;
+    aspect-ratio: 16 / 10; // Perfectly matches the 16:10 aspect ratio of trackstack, westend, and delivrd (1920x1200)
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    z-index: 10;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.4); // Premium bolder translucent border enclosing the image
+    border-radius: 12px; // Premium rounded corners for the cinematic thumbnail
+    overflow: hidden;
+
+    &>* {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+    }
+
+    @media (max-width: 1199px) {
+        position: relative;
+        top: unset;
+        left: unset;
+        transform: none;
+        width: 85vw;
+        max-width: 600px;
+        height: auto;
+        margin: 4rem auto 0; // Reduced from 8rem to keep spacing snug and visual header strong
+        order: 1; // Explicitly render above the text content
+    }
+}
+
+.showcaseThumbnailsThumbnail {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.showcaseThumbnailsDom {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.canvasPlaceholderImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 5;
+    display: block;
+}
+
+/* Left Column: Unified Name & Services Wrapper */
+.showcaseServicesProvided {
+    position: absolute;
+    top: 50%;
+    left: 8vw;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem; // Clean spacing between the project name and its service list
+    width: 28vw;
+    z-index: 25;
+
+    @media (max-width: 1199px) {
+        position: relative;
+        top: unset;
+        left: unset;
+        transform: none;
+        width: 100%;
+        margin: 1.5rem auto 4rem; // Snug vertical gap below the image, and 4rem margin at the bottom of the card block
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        order: 2; // Explicitly render below the image
+    }
+}
+
+.showcaseServicesProvidedServices {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @media (max-width: 1199px) {
+        align-items: center;
+    }
+}
+
+.servicesLine {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    @media (max-width: 1199px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+}
+
+.serviceRole {
+    display: block;
+    font-family: var(--font-twk);
+    font-weight: 500;
+    font-size: 0.85rem; // Decreased from 1.15rem on desktop for a compact, refined editorial look
+    line-height: 1.35;
+    color: var(--color-text-primary);
+    text-transform: uppercase; // Display roles in ALL CAPS
+    opacity: 0.85;
+
+    @media (max-width: 1199px) {
+        font-size: 0.8rem; // Decreased from 0.9rem on mobile/tablet
+        display: inline-block;
+    }
+}
+
+/* Right Column (Outer): Active Slide Indicator with Project Thumbnails */
+.showcaseSliderIndicator {
+    --width: 4.2rem;
+    --height: 2.4rem;
+    --gap: 0.8rem;
+    position: absolute;
+    top: 0;
+    right: 3vw; // Moved pinned gallery slider from left to right side
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    pointer-events: auto;
+
+    @media (max-width: 1199px) {
+        display: none !important; // Hide pinned gallery indicator thumbnails completely on mobile/tablet viewports
+    }
+}
+
+.showcaseSliderIndicatorSlides {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+
+    @media (max-width: 1199px) {
+        flex-direction: row;
+    }
+}
+
+.showcaseSliderIndicatorSlidesSlide {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+    will-change: opacity, transform;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0.35;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
+    border: 1.5px solid transparent;
+
+    &:hover {
+        opacity: 0.75;
+        transform: scale(1.06);
+    }
+
+    &.activeSlide {
+        opacity: 1;
+        transform: scale(1.1);
+        border-color: var(--brand-yellow); // High-contrast themed border highlight
+        box-shadow: 0 6px 15px rgba(239, 187, 85, 0.25);
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/* Bottom Center: View All Projects button */
+.showcaseFooter {
+    display: none !important; // Temporarily hidden by user request
+    position: relative;
+    width: 100%;
+    padding: 8vh 0 12vh;
+    z-index: 20;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        padding: 5vh 0 7vh;
+    }
+}
+
+.viewAllBtn {
+    font-family: "Neue Montreal Light", "Neue Montreal Regular", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    background-color: transparent;
+    border: 2px solid var(--color-text-primary);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    gap: 6px;
+
+    &:hover {
+        background-color: var(--color-text-primary);
+        color: #040404;
+
+        .chatArrow {
+            transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+            color: #040404;
+        }
+
+        .arrow1 {
+            transform: translateX(150%);
+        }
+
+        .arrow2 {
+            transform: translateX(0);
+        }
+    }
+}
+
+.arrowWrapper {
+    position: relative;
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.chatArrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--color-text-primary);
+    will-change: transform;
+    flex-shrink: 0;
+    transition: color 0.3s ease;
+
+    &.arrow1 {
+        transform: translateX(0);
+    }
+
+    &.arrow2 {
+        transform: translateX(-150%);
+    }
+}
+
+.liveLinkBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.6rem; // Clean editorial gap below roles list
+    font-family: var(--font-twk);
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--brand-yellow); // Editorial accent pop
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    pointer-events: auto !important;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: var(--color-text-primary);
+
+        .liveArrow {
+            transform: translateX(4px);
+        }
+    }
+}
+
+.liveArrowWrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.liveArrow {
+    width: 14px;
+    height: 14px;
+    color: inherit;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}

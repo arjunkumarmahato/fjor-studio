@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local capture/reference artifacts
+capture*.js
+fromanother_raw.html
+main.css
+screenshot_*.jpg
+screenshot_*.png
+portfolio_v1/

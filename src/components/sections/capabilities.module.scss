@@ -1,0 +1,88 @@
+.capabilitiesSection {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--pd-xl) var(--pd-lg);
+
+    @media (max-width: 1024px) {
+        padding: 5rem 3rem;
+    }
+
+    @media (max-width: 768px) {
+        padding: 3rem 1.5rem;
+        min-height: auto;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1600px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8vw;
+
+    @media (max-width: 992px) {
+        flex-direction: column;
+        gap: var(--pd-xl);
+    }
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--pd-md);
+}
+
+.columnHeader {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.monoLabel {
+    font-family: "Roboto Mono Regular", monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary); // Titanium Gray
+    text-transform: uppercase;
+}
+
+.scrubContainer {
+    position: relative;
+}
+
+.textGray, .textWhite {
+    font-family: "Romie Regular", serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    margin: 0;
+
+    @media (max-width: 1200px) {
+        font-size: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 1.6rem;
+    }
+}
+
+.textGray {
+    color: var(--color-text-secondary); // Titanium Gray Base
+}
+
+.textWhite {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: var(--color-text-primary); // Pure Off-White Overlay
+    pointer-events: none;
+    // Initial GSAP clip-path hides this completely
+}

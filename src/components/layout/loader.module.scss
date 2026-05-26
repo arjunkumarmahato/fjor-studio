@@ -1,0 +1,21 @@
+.loaderOverlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-bg-primary); // Vantablack
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+}
+
+.kinematicShape {
+    width: 0px;
+    height: 2px; // Razor-thin
+    background-color: var(--color-text-primary); // Silver / Off-white
+    border-radius: 0px;
+    transform-origin: center center;
+    will-change: width, height, transform, border-radius;
+}

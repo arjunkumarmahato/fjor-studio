@@ -1,0 +1,51 @@
+.numberTicker {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-bg-primary);
+    // border: 1px dashed var(--color-bg-secondary);
+    display: flex;
+
+    --box-width: calc((100vw - 64px) / 3);
+
+    @media screen and (min-width: 768px) {
+        --box-width: 200px;
+    }
+}
+
+.box {
+    position: relative;
+    width: var(--box-width);
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background-color: var(--color-bg-primary);
+}
+
+.digitStack {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.digit {
+    width: 100%;
+    height: calc(var(--box-width) + 40px);
+    transform: translateY(-20px);
+    font-size: calc(var(--box-width) * 1.55);
+    font-weight: 500;
+    font-family: "Neue Montreal Regular", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tens {
+    background-color: var(--color-text-glass);
+    color: var(--color-bg-primary);
+}
+
+.units {
+    color: var(--color-text-glass);
+}

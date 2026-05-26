@@ -1,0 +1,130 @@
+.systemsSection {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--pd-xl) var(--pd-lg);
+
+    @media (max-width: 1024px) {
+        padding: 5rem 3rem;
+    }
+
+    @media (max-width: 768px) {
+        padding: 3rem 1.5rem;
+        min-height: auto;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--pd-xl);
+}
+
+.header {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 20px;
+}
+
+.monoLabel {
+    font-family: "Roboto Mono Regular", monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.trackCard {
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    transition: background-color var(--transition-fast);
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.02);
+    }
+}
+
+.trackHeader {
+    padding: 30px 40px;
+    border-bottom: 1px solid var(--color-border);
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+.trackTitle {
+    font-family: "Roboto Mono Regular", monospace;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.trackBody {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+}
+
+.dataRow, .dataRowScope, .dataRowInvestment {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.dataRowInvestment {
+    border-bottom: none;
+}
+
+.dataKey {
+    font-family: "Neue Montreal Regular", sans-serif;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dataValue, .dataValueHighlight {
+    font-family: "Roboto Mono Regular", monospace;
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+}
+
+.dataValueHighlight {
+    color: var(--color-accent); // A subtle highlight for the investment string
+}
+
+.scopeText {
+    font-family: "Romie Regular", serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .trackHeader {
+        padding: 30px 20px;
+    }
+    .trackBody {
+        padding: 0 20px;
+    }
+}
