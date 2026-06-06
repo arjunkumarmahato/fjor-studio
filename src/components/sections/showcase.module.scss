@@ -100,13 +100,13 @@
     transform: translate(-50%, -50%);
     width: 44vw;
     max-width: 800px;
-    aspect-ratio: 16 / 10; // Perfectly matches the 16:10 aspect ratio of trackstack, westend, and delivrd (1920x1200)
+    aspect-ratio: 18.5 / 10; // Perfectly matches the 16:10 aspect ratio of trackstack, westend, and delivrd (1920x1200)
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     z-index: 10;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.4); // Premium bolder translucent border enclosing the image
+    border: 6px solid rgba(255, 255, 255, 0.1); // Premium bolder translucent border enclosing the image
     border-radius: 12px; // Premium rounded corners for the cinematic thumbnail
     overflow: hidden;
 

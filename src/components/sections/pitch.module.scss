@@ -27,7 +27,7 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 2rem;
 
@@ -54,9 +54,9 @@
         grid-column: 4 / -1;
     }
 
-    & > :not(:last-child) {
+    &> :not(:last-child) {
         margin-bottom: 4rem;
-        
+
         @media (min-width: 768px) {
             margin-bottom: 4.8rem;
         }
@@ -115,7 +115,7 @@
     grid-column: 1 / -1;
 
     @media (min-width: 1200px) {
-        grid-column: span 7;
+        grid-column: span 8;
     }
 }
 
@@ -145,25 +145,23 @@
 }
 
 .whatWeDoContentItemContentList {
-    font: 600 1.6rem/1em var(--font-twk);
-    letter-spacing: -0.048rem;
+    font: 600 1.4rem/1em var(--font-twk);
     list-style: none;
     padding: 0;
     margin: 0;
 
     @media (min-width: 768px) {
-        font: 600 2.4rem/1em var(--font-twk);
-        letter-spacing: -0.072rem;
+        font: 600 1.8rem/1em var(--font-twk);
     }
 
     @media (min-width: 1200px) {
         margin-top: calc(var(--offset) * -1);
-        font: 600 4.4rem/1em var(--font-twk);
-        letter-spacing: -0.132rem;
+        font: 600 2.4rem/1em var(--font-twk);
     }
 }
 
 .whatWeDoContentItemContentListItem {
+    border-bottom: 1px solid white;
     opacity: 0.15;
     filter: blur(4px);
     transition: opacity 0.8s, filter 0.8s;

@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./header.module.scss";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const menuItems = [
     { label: "Home", target: "#hero" },
@@ -12,6 +14,47 @@ const menuItems = [
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
+    const tlRef = useRef<gsap.core.Timeline | null>(null);
+
+    useGSAP(() => {
+        tlRef.current = gsap.timeline({ paused: true })
+            .set(menuRef.current, { visibility: "visible" })
+            .to(menuRef.current, {
+                opacity: 1,
+                duration: 0.4,
+                ease: "power2.inOut",
+            })
+            .fromTo(
+                ".menuItemGSAP",
+                { y: 100, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.6,
+                    stagger: 0.05,
+                    ease: "power3.out",
+                },
+                "-=0.2"
+            )
+            .fromTo(
+                `.${styles.secondaryLinks}`,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+                "-=0.4"
+            );
+    }, { scope: menuRef });
+
+    useGSAP(() => {
+        if (isOpen) {
+            gsap.set(menuRef.current, { pointerEvents: "auto" });
+            tlRef.current?.play();
+        } else {
+            tlRef.current?.reverse().then(() => {
+                gsap.set(menuRef.current, { pointerEvents: "none" });
+            });
+        }
+    }, [isOpen]);
 
     const handleLinkClick = (selector: string) => {
         setIsOpen(false);
@@ -49,14 +92,6 @@ export default function Header() {
                         </div>
                         <span className={styles.togglerText}>{isOpen ? "Close" : "Menu"}</span>
                     </button>
-
-                    <div className={`${styles.simpleMenu} ${isOpen ? styles.simpleMenuOpen : ""}`}>
-                        {menuItems.map((item) => (
-                            <button key={item.target} onClick={() => handleLinkClick(item.target)}>
-                                {item.label}
-                            </button>
-                        ))}
-                    </div>
                 </div>
 
                 {/* Right: Contact button */}
@@ -96,6 +131,22 @@ export default function Header() {
                     </a>
                 </div>
             </nav>
+
+            {/* Awwwards Full Screen Menu Overlay */}
+            <div className={styles.fullScreenMenu} ref={menuRef}>
+                <div className={styles.menuItemsList}>
+                    {menuItems.map((item) => (
+                        <div key={item.target} className={styles.menuItemContainer}>
+                            <button
+                                className={`${styles.menuItem} menuItemGSAP`}
+                                onClick={() => handleLinkClick(item.target)}
+                            >
+                                {item.label}
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }

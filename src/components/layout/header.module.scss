@@ -248,51 +248,95 @@
     }
 }
 
-.simpleMenu {
-    position: absolute;
-    top: calc(100% + 0.6rem);
-    left: 50%;
+.fullScreenMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(4, 4, 4, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 999; // just below nav and toggler
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    min-width: 12rem;
-    padding: 0.7rem;
-    transform: translate(-50%, -0.4rem);
-    border: 1px solid rgba(255, 250, 230, 0.2);
-    border-radius: 8px;
-    background: rgba(4, 4, 4, 0.9);
-    box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.32);
-    opacity: 0;
+    justify-content: center;
+    padding: 2rem 2rem;
     pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
 
-    button {
-        width: 100%;
-        padding: 0.75rem 0.85rem;
-        border-radius: 5px;
-        font-family: "Neue Montreal Light", "Neue Montreal Regular", sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-        color: #fff;
-        letter-spacing: 0.03em;
-        text-align: left;
-        text-transform: uppercase;
-        white-space: nowrap;
-        cursor: pointer;
-        transition: color 0.2s ease, background-color 0.2s ease;
-
-        &:hover {
-            color: #040404;
-            background-color: var(--brand-yellow);
-        }
+    @media (max-width: 768px) {
+        padding: 1rem;
     }
 }
 
-.simpleMenuOpen {
-    transform: translate(-50%, 0);
-    opacity: 1;
-    pointer-events: auto;
+.menuItemsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-top: 4rem;
+}
+
+.menuItemContainer {
+    overflow: hidden;
+}
+
+.menuItem {
+    background: none;
+    border: none;
+    font-family: var(--font-twk), sans-serif;
+    font-size: 4rem;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    line-height: 1;
+    position: relative;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: color 0.4s ease;
+
+    @media (min-width: 768px) {
+        font-size: 6rem;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 8rem;
+    }
+
+    // Awwwards hover effect: text stroke and solid fill transition
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+    transition: 0.3s all ease;
+
+    &:hover {
+        color: #fff;
+        -webkit-text-stroke: 1px transparent;
+    }
+}
+
+.secondaryLinks {
+    margin-top: auto;
+    display: flex;
+    gap: 2rem;
+    opacity: 0; // for GSAP
+
+    a {
+        font-family: "Neue Montreal Light", "Neue Montreal Regular", sans-serif;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #fff;
+        }
+    }
 }
 
 .open {

@@ -19,23 +19,27 @@ interface ProjectItem {
 const projects: ProjectItem[] = [
     {
         num: "01",
-        title: "Trackstack",
-        img: "/images/trackstack.webp",
-        roles: ["ART DIRECTION", "BRAND DESIGN", "UI/UX", "WEB DESIGN", "PRODUCT DESIGN"]
+        title: "Soneva",
+        img: "/images/soneva.png",
+        roles: ["ART DIRECTION", "BRAND DESIGN", "UI/UX", "WEB DESIGN"]
     },
     {
         num: "02",
-        title: "Westend",
-        img: "/images/westend.webp",
-        roles: ["ART DIRECTION", "WEB DESIGN"],
-        link: "https://www.itsthewestend.com/"
+        title: "Heavys",
+        img: "/images/heavys.png",
+        roles: ["ART DIRECTION", "WEB DESIGN", "UI/UX", "BRAND DESIGN"],
     },
     {
         num: "03",
-        title: "Delivrd",
-        img: "/images/delivrd.webp",
-        roles: ["PRODUCT DESIGN", "WEBGL DEVELOPMENT", "CREATIVE DIRECTION", "WEB DESIGN"],
-        link: "https://www.delivrd.live/"
+        title: "K72",
+        img: "/images/k72.png",
+        roles: ["REBUILD", "CREATIVE DIRECTION", "WEB DESIGN"],
+    },
+    {
+        num: "04",
+        title: "Belleza",
+        img: "/images/belleza.png",
+        roles: ["BRAND IDENTITY", "UI/UX", "WEB DESIGN"],
     }
 ];
 
@@ -101,19 +105,19 @@ export default function WebGLShowcase() {
                 duration: 1.2,
                 ease: "power3.out"
             })
-            .to(titles, {
-                yPercent: 0,
-                stagger: 0.08,
-                duration: 0.8,
-                ease: "power4.out"
-            }, "-=0.9")
-            .to(roles, {
-                opacity: 0.8,
-                y: 0,
-                stagger: 0.04,
-                duration: 0.6,
-                ease: "power3.out"
-            }, "-=0.7");
+                .to(titles, {
+                    yPercent: 0,
+                    stagger: 0.08,
+                    duration: 0.8,
+                    ease: "power4.out"
+                }, "-=0.9")
+                .to(roles, {
+                    opacity: 0.8,
+                    y: 0,
+                    stagger: 0.04,
+                    duration: 0.6,
+                    ease: "power3.out"
+                }, "-=0.7");
 
             // 2. Active Index Scroll Trigger
             ScrollTrigger.create({
@@ -138,7 +142,7 @@ export default function WebGLShowcase() {
                 invalidateOnRefresh: true,
                 refreshPriority: 1
             });
-            
+
             // Force ScrollTrigger refresh once setup is complete
             ScrollTrigger.refresh();
         }
@@ -245,11 +249,10 @@ export default function WebGLShowcase() {
                 <div ref={sideGalleryRef} className={styles.showcaseSliderIndicator}>
                     <div className={styles.showcaseSliderIndicatorSlides}>
                         {projects.map((p, pIdx) => (
-                            <div 
-                                key={pIdx} 
-                                className={`${styles.showcaseSliderIndicatorSlidesSlide} ${
-                                    pIdx === activeIndex ? styles.activeSlide : ""
-                                }`}
+                            <div
+                                key={pIdx}
+                                className={`${styles.showcaseSliderIndicatorSlidesSlide} ${pIdx === activeIndex ? styles.activeSlide : ""
+                                    }`}
                                 onClick={() => scrollToProject(pIdx)}
                             >
                                 <img src={p.img} alt={p.title.replace('\n', ' ')} />

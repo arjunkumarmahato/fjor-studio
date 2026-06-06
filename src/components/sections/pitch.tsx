@@ -19,14 +19,20 @@ const categories: CategoryData[] = [
     {
         num: "01",
         subNum: "2.1",
-        name: "DIRECTION",
-        items: ["ART DIRECTION", "MOTION DESIGN", "BRAND IDENTITY"]
+        name: "Strategy",
+        items: ["Brand Strategy", "Product Discovery", "User Research", "Content Strategy", "Conversion Strategy"]
     },
     {
         num: "02",
         subNum: "2.2",
-        name: "DIGITAL",
-        items: ["UI/UX", "WEB EXPERIENCE", "SEO"]
+        name: "Design",
+        items: ["Visual Identity", "Art Direction", "UI/UX Design", "Interaction Design", "Design Systems", "Motion Design", "Typography"]
+    },
+    {
+        num: "03",
+        subNum: "2.3",
+        name: "Development",
+        items: ["Frontend Development", "Backend Development", "CMS Integration", "Accessibility", "Performance & SEO", "Deployment & Infrastructure", "Maintenance & Support"]
     }
 ];
 

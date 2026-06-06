@@ -120,9 +120,9 @@ export default function Hero() {
 
         // Expand the video symmetrically from its new center
         scrollTl.to(mediaBoxRef.current, {
-            width: "99.5vw",
-            height: "98vh",
-            borderRadius: "16px",
+            width: "calc(100vw - 32px)",
+            height: "calc(100vh - 32px)",
+            borderRadius: "8px",
             duration: 0.6,
             ease: "power2.inOut"
         }, ">");
