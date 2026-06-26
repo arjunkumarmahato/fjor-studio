@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import ClientWrapper from "@/components/client-wrapper";
 import "./globals.scss";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const siteDescription = "FJOR Studio is a digital design studio crafting art direction, motion design, brand identity, UI/UX, web experiences, and SEO-focused digital systems.";
 
@@ -45,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <body>
         <ClientWrapper>
           <div className="noise-overlay" />

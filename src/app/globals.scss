@@ -1,23 +1,25 @@
 :root {
-  --color-bg-primary: #040404; // Vantablack
-  --color-bg-secondary: #0a0a0c; // Charcoal Secondary
-  --color-bg-tertiary: #111115;
-  --color-bg-glass: rgba(255, 255, 255, 0.03);
-  --color-bg-glass-dark: rgba(0, 0, 0, 0.8);
+  --color-bg-primary: #050A14; // Void Navy
+  --color-bg-secondary: #080f1f; // Adjusted for Void Navy
+  --color-bg-tertiary: #0c162c;
+  --color-bg-glass: rgba(248, 250, 252, 0.03);
+  --color-bg-glass-dark: rgba(5, 10, 20, 0.8);
 
-  --color-text-primary: #EDEDED; // Off-White
-  --color-text-secondary: #8A8A93; // Titanium Gray
-  --color-text-tertiary: #55555c;
-  --color-text-glass: rgba(255, 255, 255, 0.08);
+  --color-text-primary: #F8FAFC; // Starlight White
+  --color-text-secondary: #94A3B8; // Slate 400
+  --color-text-tertiary: #64748B; // Slate 500
+  --color-text-glass: rgba(248, 250, 252, 0.08);
 
-  --color-accent: #E5D5C5; // Keep Champagne Gold for extremely subtle highlights if needed
-  --color-border: rgba(255, 255, 255, 0.05); // Hairline divider
+  --color-accent: #38BDF8; // Electric Cyan
+  --color-accent-secondary: #6366F1; // Royal Indigo
+  --color-cta: #34D399; // CTA Button
+  --color-border: rgba(248, 250, 252, 0.05); // Hairline divider
 
-  --pd-xs: 0.5rem;
-  --pd-sm: 1rem;
-  --pd-md: 2rem;
-  --pd-lg: 4rem;
-  --pd-xl: 8rem;
+  --pd-xs: 0.5em;
+  --pd-sm: 1em;
+  --pd-md: 2em;
+  --pd-lg: 4em;
+  --pd-xl: 8em;
 
   --box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
   --box-shadow-glow: 0 0 40px rgba(229, 213, 197, 0.04);
@@ -26,11 +28,39 @@
   --transition-normal: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 
-  --font-twk: "Spezia Normal Medium", "Neue Montreal Regular", sans-serif;
+  // Typography: Letter Spacing
+  --ls-tight: -0.07em;
+  --ls-normal: 0;
+  --ls-wide: 0.05em;
+  --ls-wider: 0.1em;
+
+  --font-twk: var(--font-inter), "Neue Montreal Regular", sans-serif;
   --font-herbik: "Eiko Regular Italic", "PP Editorial New", serif;
   --easeOutQuart: cubic-bezier(0.25, 1, 0.5, 1);
   --brand-yellow: #fffae6;
   --brand-dark-blue: #0b1a26;
+
+  // Standardized Font Size Scale
+  --fs-micro: 0.65rem;
+  --fs-xs: 0.8rem;
+  --fs-sm: 0.9rem;
+  --fs-base: 1rem;
+  --fs-md: 1.15rem;
+  --fs-lg: 1.6rem;
+  --fs-xl: 2.2rem;
+  --fs-2xl: 2.6rem;
+  --fs-3xl: 3.5rem;
+  --fs-4xl: 4rem;
+  --fs-5xl: 6rem;
+  --fs-6xl: 8rem;
+
+  // Fluid / Specific Values
+  --fs-fluid-1: clamp(1.5rem, 4vw, 4rem);
+  --fs-fluid-2: clamp(3rem, 12vw, 8.5rem);
+  --fs-fluid-3: clamp(3rem, 14vw, 8.5rem);
+  --fs-vw-1: 7vw;
+  --fs-vw-2: 7.2vw;
+  --fs-huge: 30rem;
 }
 
 @font-face {
@@ -189,19 +219,25 @@
   src: url("/fonts/monoska.woff2");
 }
 
+
 @font-face {
-  font-family: "Spezia Mono Medium";
-  src: url("/fonts/spezia-mono-medium.woff2");
+  font-family: "Metropolis Medium";
+  src: url("/fonts/metropolis-medium.woff2");
 }
 
 @font-face {
-  font-family: "Spezia Narrow Semibold";
-  src: url("/fonts/spezia-narrow-semibold.woff2");
+  font-family: "Metropolis Regular";
+  src: url("/fonts/metropolis-regular.woff2");
 }
 
 @font-face {
-  font-family: "Spezia Normal Medium";
-  src: url("/fonts/spezia-normal-medium.woff2");
+  font-family: "Metropolis Semibold";
+  src: url("/fonts/metropolis-semibold.woff2");
+}
+
+@font-face {
+  font-family: "Metropolis Thin Italic";
+  src: url("/fonts/metropolis-thin-italic.woff2");
 }
 
 * {
@@ -211,23 +247,11 @@
   font-family: "Neue Montreal Light", "Neue Montreal Regular", Helvetica, sans-serif;
 }
 
-.noise-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
 html,
 body {
   width: 100vw;
   overflow-x: hidden;
-  font-size: 16px;
+  font-size: var(--fs-base);
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
 
@@ -237,13 +261,20 @@ body {
   }
 
   /* Hide Scrollbar for IE, Edge, and Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 body {
+  padding: 0 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media screen and (min-width: 1024px) {
+    padding: 0 16px;
+  }
 
   @media (pointer: fine) {
     cursor: none;
@@ -277,12 +308,12 @@ button {
   max-width: calc(100vw - 3rem);
   transform: translateX(-50%);
   font-family: "Neue Montreal Light", "Neue Montreal Regular", sans-serif;
-  font-size: 0.85rem;
+  font-size: var(--fs-xs);
   font-style: normal;
   font-weight: 700;
   line-height: 1;
   color: var(--brand-yellow);
-  letter-spacing: 0.03em;
+  letter-spacing: var(--ls-wide);
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;

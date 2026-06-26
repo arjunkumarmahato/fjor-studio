@@ -33,8 +33,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
         gsap.ticker.add(ticker);
         gsap.ticker.lagSmoothing(0);
 
-        // Ensure background is locked to Vantablack
-        gsap.set("body", { backgroundColor: "#040404" });
+
 
         return () => {
             gsap.ticker.remove(ticker);

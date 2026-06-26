@@ -24,7 +24,7 @@
     line-height: 0.92em;
     font-weight: 800;
     text-transform: uppercase;
-    font-size: clamp(3rem, 14vw, 8.5rem);
+    font-size: var(--fs-fluid-3);
     text-align: center;
     display: flex;
     flex-direction: column;

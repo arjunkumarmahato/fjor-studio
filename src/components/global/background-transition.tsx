@@ -20,13 +20,7 @@ const sectionVideos: Record<string, string> = {
     "footer": "https://stream.mux.com/uKkmm51HPsTGQzUqQMxVUV8eI01BykKYUGKvFALbiP7U/medium.mp4"
 };
 
-const sectionColors: Record<string, string> = {
-    "showcase": "var(--brand-yellow)",
-    "team": "var(--brand-dark-blue)",
-    "awards": "#d2e4f4",
-    "press": "var(--brand-dark-blue)",
-    "footer": "transparent"
-};
+const sectionColors: Record<string, string> = {};
 
 export default function BackgroundTransition() {
     const containerRef = useRef<HTMLDivElement>(null);

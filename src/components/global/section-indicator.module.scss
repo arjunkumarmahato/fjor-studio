@@ -27,7 +27,7 @@
 .item {
     display: flex;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     line-height: 1;
     font-family: var(--font-twk);
     color: rgba(255, 255, 255, 0.25);
@@ -39,7 +39,7 @@
     font-weight: 500;
     
     &[data-section="what_we_do"] {
-        color: #5ce1e6; // Cyan/blue matching Capabilities screenshot
+        color: var(--color-accent); // Cyan/blue matching Capabilities screenshot
     }
 }
 
@@ -58,7 +58,7 @@
 .name {
     font-family: var(--font-herbik);
     font-style: italic;
-    font-size: 1.1rem;
+    font-size: var(--fs-base);
     color: inherit;
     text-transform: none; // Match sentence case in screenshots
     animation: slideInName 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;

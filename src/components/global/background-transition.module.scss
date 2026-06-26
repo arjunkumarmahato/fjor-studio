@@ -64,19 +64,19 @@
     background-image: url(/images/noise.png);
     background-repeat: repeat;
     pointer-events: none;
-    background-size: 60px;
+    background-size: 30px;
 
     @media (min-width: 768px) {
-        background-size: 80px;
+        background-size: 40px;
     }
 
     @media (min-width: 1200px) {
-        background-size: 100px;
+        background-size: 50px;
     }
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--color-bg-glass-dark);
 }

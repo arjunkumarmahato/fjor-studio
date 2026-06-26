@@ -36,17 +36,17 @@
 
 .indexNum, .indexDash {
     font-family: "Eiko Regular Italic", serif;
-    font-size: 1rem;
+    font-size: var(--fs-base);
     font-style: italic;
     color: rgba(255, 255, 255, 0.4);
 }
 
 .indexName {
     font-family: "Neue Montreal Regular", sans-serif;
-    font-size: 0.85rem;
+    font-size: var(--fs-xs);
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: var(--ls-wider);
     color: rgba(255, 255, 255, 0.4);
 }
 
@@ -87,21 +87,21 @@
 
 .orgName {
     font-family: "Eiko Regular Italic", serif;
-    font-size: 2.8rem;
+    font-size: var(--fs-2xl);
     font-style: italic;
     font-weight: 300;
-    color: #ffffff;
+    color: var(--color-text-primary);
     margin: 0;
     line-height: 1.1;
     
     @media (max-width: 768px) {
-        font-size: 1.8rem;
+        font-size: var(--fs-lg);
     }
 }
 
 .plusIcon {
     font-family: "Neue Montreal Regular", sans-serif;
-    font-size: 1.5rem;
+    font-size: var(--fs-lg);
     color: rgba(255, 255, 255, 0.5);
     font-weight: 300;
 }
@@ -110,7 +110,7 @@
     display: flex;
     gap: 4vw;
     font-family: "Neue Montreal Regular", sans-serif;
-    font-size: 1rem;
+    font-size: var(--fs-base);
     color: rgba(255, 255, 255, 0.6);
     
     @media (max-width: 768px) {
@@ -130,9 +130,9 @@
 
 .prizeName {
     font-family: "Neue Montreal Regular", sans-serif;
-    font-size: 1.2rem;
+    font-size: var(--fs-md);
     font-weight: 500;
-    color: #ffffff;
+    color: var(--color-text-primary);
     margin: 0 0 15px 0;
 }
 
@@ -141,7 +141,7 @@
     flex-direction: column;
     gap: 8px;
     font-family: "Neue Montreal Regular", sans-serif;
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     color: rgba(255, 255, 255, 0.6);
     
     @media (max-width: 768px) {

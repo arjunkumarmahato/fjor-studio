@@ -95,11 +95,11 @@
     display: none !important;
     grid-column: span 2;
     font-family: "Neue Montreal Light", "Neue Montreal Regular", sans-serif;
-    font-size: 0.85rem;
+    font-size: var(--fs-xs);
     font-style: normal;
     font-weight: 700;
     line-height: 1;
-    letter-spacing: 0.03em;
+    letter-spacing: var(--ls-wide);
     position: sticky;
     top: calc(50svh - var(--label-height) / 2);
     left: 0;
@@ -124,11 +124,11 @@
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
     font-family: "Neue Montreal Light", "Neue Montreal Regular", sans-serif;
-    font-size: 0.85rem;
+    font-size: var(--fs-xs);
     font-style: normal;
     font-weight: 700;
     line-height: 1;
-    letter-spacing: 0.03em;
+    letter-spacing: var(--ls-wide);
     gap: 2rem;
 
     @media (min-width: 1200px) {

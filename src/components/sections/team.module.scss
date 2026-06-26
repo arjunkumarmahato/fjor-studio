@@ -82,7 +82,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #1a1d2e;
+    background: var(--color-bg-tertiary);
 }
 
 .teamCardsItemSceneObj {
@@ -122,13 +122,13 @@
 
     p {
         font: 400 1.4rem/1.4em var(--font-twk);
-        letter-spacing: -0.028rem;
-        color: var(--color-text-secondary, #fff);
+        letter-spacing: var(--ls-tight);
+        color: var(--color-text-secondary, var(--color-text-primary));
         margin: 0;
 
         @media (min-width: 768px) {
             font: 400 1.6rem/1.4em var(--font-twk);
-            letter-spacing: -0.032rem;
+            letter-spacing: var(--ls-tight);
         }
     }
 }
@@ -143,9 +143,9 @@
 }
 
 .teamSectionIndexNum {
-    font-size: 30rem;
+    font-size: var(--fs-huge);
     font-family: var(--font-twk);
-    color: var(--brand-yellow, #fff);
+    color: var(--brand-yellow, var(--color-text-primary));
     font-weight: bold;
     line-height: 1;
 }

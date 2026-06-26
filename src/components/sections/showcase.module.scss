@@ -74,19 +74,19 @@
     font-family: var(--font-twk);
     font-weight: 700;
     color: var(--color-text-primary);
-    font-size: 7.2vw;
+    font-size: var(--fs-vw-2);
     line-height: 0.92;
-    letter-spacing: normal; // Normal letter spacing
+    letter-spacing: var(--ls-normal); // Normal letter spacing
     text-align: left;
     text-transform: uppercase;
     white-space: nowrap;
 
     @media (min-width: 1200px) {
-        font-size: 2.6rem; // Refined further for compact, premium editorial appearance
+        font-size: var(--fs-2xl); // Refined further for compact, premium editorial appearance
     }
 
     @media (max-width: 1199px) {
-        font-size: 1.8rem; // Refined further for clean mobile presentation
+        font-size: var(--fs-lg); // Refined further for clean mobile presentation
         line-height: 1.05;
         text-align: center;
     }
@@ -205,14 +205,14 @@
     display: block;
     font-family: var(--font-twk);
     font-weight: 500;
-    font-size: 0.85rem; // Decreased from 1.15rem on desktop for a compact, refined editorial look
+    font-size: var(--fs-xs); // Decreased from 1.15rem on desktop for a compact, refined editorial look
     line-height: 1.35;
     color: var(--color-text-primary);
     text-transform: uppercase; // Display roles in ALL CAPS
     opacity: 0.85;
 
     @media (max-width: 1199px) {
-        font-size: 0.8rem; // Decreased from 0.9rem on mobile/tablet
+        font-size: var(--fs-xs); // Decreased from 0.9rem on mobile/tablet
         display: inline-block;
     }
 }
@@ -297,13 +297,13 @@
 
 .viewAllBtn {
     font-family: "Neue Montreal Light", "Neue Montreal Regular", sans-serif;
-    font-size: 0.85rem;
+    font-size: var(--fs-xs);
     font-weight: 700;
     color: var(--color-text-primary);
     background-color: transparent;
     border: 2px solid var(--color-text-primary);
     text-decoration: none;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--ls-wide);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -316,11 +316,11 @@
 
     &:hover {
         background-color: var(--color-text-primary);
-        color: #040404;
+        color: var(--color-bg-primary);
 
         .chatArrow {
             transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
-            color: #040404;
+            color: var(--color-bg-primary);
         }
 
         .arrow1 {
@@ -371,11 +371,11 @@
     margin-top: 0.6rem; // Clean editorial gap below roles list
     font-family: var(--font-twk);
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--brand-yellow); // Editorial accent pop
     text-transform: uppercase;
     text-decoration: none;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--ls-wide);
     pointer-events: auto !important;
     cursor: pointer;
     transition: color 0.3s ease;

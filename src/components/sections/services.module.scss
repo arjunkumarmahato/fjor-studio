@@ -69,22 +69,22 @@
 
 .num {
     font-family: "Neue Montreal Light", sans-serif;
-    font-size: 5.5rem;
+    font-size: var(--fs-5xl);
     font-weight: 300;
     line-height: 0.85;
     color: var(--color-accent); // Champagne gold
     opacity: 0.9;
 
     @media (max-width: 768px) {
-        font-size: 3.5rem;
+        font-size: var(--fs-3xl);
     }
 }
 
 .metaLabel {
     font-family: "Aeonik Mono Regular", monospace;
-    font-size: 0.6rem;
+    font-size: var(--fs-micro);
     color: var(--color-text-tertiary);
-    letter-spacing: 0.2em;
+    letter-spacing: var(--ls-wider);
     text-transform: uppercase;
     margin-top: 12px;
 }
@@ -100,19 +100,19 @@
 
 .panelTitle {
     font-family: "Neue Montreal Light", sans-serif;
-    font-size: 2.8rem;
+    font-size: var(--fs-2xl);
     font-weight: 300;
     line-height: 1.15;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--ls-tight);
     color: var(--color-text-primary);
     text-transform: uppercase;
 
     @media (max-width: 992px) {
-        font-size: 2.2rem;
+        font-size: var(--fs-xl);
     }
 
     @media (max-width: 768px) {
-        font-size: 1.6rem;
+        font-size: var(--fs-lg);
     }
 }
 
@@ -126,14 +126,14 @@
 
 .panelDesc {
     font-family: "Neue Montreal Light", sans-serif;
-    font-size: 1.05rem;
+    font-size: var(--fs-base);
     font-weight: 300;
     line-height: 1.65;
     color: var(--color-text-secondary);
     max-width: 580px;
 
     @media (max-width: 768px) {
-        font-size: 1rem;
+        font-size: var(--fs-base);
     }
 }
 
@@ -160,9 +160,9 @@
 
 .specLabel {
     font-family: "Aeonik Mono Regular", monospace;
-    font-size: 0.65rem;
+    font-size: var(--fs-micro);
     color: var(--color-text-tertiary);
-    letter-spacing: 0.15em;
+    letter-spacing: var(--ls-wider);
     width: 110px;
     flex-shrink: 0;
     text-transform: uppercase;
@@ -170,6 +170,6 @@
 
 .specVal {
     font-family: "Neue Montreal Light", sans-serif;
-    font-size: 0.85rem;
+    font-size: var(--fs-xs);
     color: var(--color-text-secondary);
 }

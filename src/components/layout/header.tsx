@@ -1,47 +1,119 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FaLinkedin, FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import styles from "./header.module.scss";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 const menuItems = [
-    { label: "Home", target: "#hero" },
-    { label: "Work", target: "#showcase" },
-    { label: "What we do", target: "#what_we_do" },
-    { label: "Contact", target: "#footer" },
+    { label: "Home", target: "/" },
+    { label: "About", target: "/about" },
+    { label: "Works", target: "/works" },
+    { label: "Vault", target: "/vault" },
+    { label: "Contact", target: "/contact" },
 ];
 
+
+
+function ScrambleLink({ href, className, onClick, children }: any) {
+    const [displayText, setDisplayText] = useState(children);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+    const handleMouseEnter = () => {
+        let shuffleCount = 0;
+        clearInterval(intervalRef.current as any);
+
+        intervalRef.current = setInterval(() => {
+            if (shuffleCount >= 3) {
+                setDisplayText(children);
+                clearInterval(intervalRef.current as any);
+                return;
+            }
+
+            setDisplayText(
+                children
+                    .split("")
+                    .map((letter: string) => {
+                        if (letter === " ") return letter;
+                        const charsOnly = children.replace(/\s/g, "");
+                        return charsOnly[Math.floor(Math.random() * charsOnly.length)];
+                    })
+                    .join("")
+            );
+
+            shuffleCount++;
+        }, 60);
+    };
+
+    const handleMouseLeave = () => {
+        clearInterval(intervalRef.current as any);
+        setDisplayText(children);
+    };
+
+    return (
+        <Link
+            href={href}
+            className={className}
+            onClick={onClick}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            {displayText}
+        </Link>
+    );
+}
+
 export default function Header() {
+    const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
     const tlRef = useRef<gsap.core.Timeline | null>(null);
 
     useGSAP(() => {
         tlRef.current = gsap.timeline({ paused: true })
-            .set(menuRef.current, { visibility: "visible" })
-            .to(menuRef.current, {
-                opacity: 1,
-                duration: 0.4,
-                ease: "power2.inOut",
-            })
+            .fromTo(menuRef.current,
+                { height: "56px" },
+                {
+                    height: "auto",
+                    duration: 0.5,
+                    ease: "power3.inOut",
+                }
+            )
             .fromTo(
                 ".menuItemGSAP",
-                { y: 100, opacity: 0 },
+                { opacity: 0 },
                 {
-                    y: 0,
                     opacity: 1,
-                    duration: 0.6,
+                    duration: 0.5,
                     stagger: 0.05,
-                    ease: "power3.out",
+                    ease: "power2.out",
+                },
+                "<0.1" // Start 0.1s after the background starts expanding
+            )
+            .fromTo(
+                ".separatorGSAP",
+                { scaleX: 0 },
+                {
+                    scaleX: 1,
+                    duration: 0.4,
+                    ease: "power3.inOut",
+                    transformOrigin: "center center",
                 },
                 "-=0.2"
             )
             .fromTo(
-                `.${styles.secondaryLinks}`,
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
-                "-=0.4"
+                ".menuFooterGSAP",
+                { opacity: 0, y: 10 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    ease: "power2.out",
+                },
+                "<0.1"
             );
     }, { scope: menuRef });
 
@@ -56,23 +128,49 @@ export default function Header() {
         }
     }, [isOpen]);
 
-    const handleLinkClick = (selector: string) => {
-        setIsOpen(false);
-        const target = document.querySelector(selector);
-        target?.scrollIntoView({ behavior: "smooth" });
-    };
-
     return (
         <div>
             {/* Nav Header */}
             <nav className={styles.nav}>
                 {/* Left: Logo */}
-                <div className={styles.navLogo} onClick={() => handleLinkClick("#hero")}>
+                <Link href="/" className={styles.navLogo} onClick={() => setIsOpen(false)}>
                     <img src="/logo.svg" alt="FJOR Studio" />
-                </div>
+                </Link>
 
-                {/* Center: Menu toggler button */}
+                {/* Center: Menu toggler button & Dropdown */}
                 <div className={styles.menuWrap}>
+                    <div className={styles.dropdownMenu} ref={menuRef}>
+                        <div className={styles.menuItemsList}>
+                            {menuItems.map((item) => (
+                                <div key={item.target} className={`${styles.menuItemContainer} menuItemGSAP`}>
+                                    <ScrambleLink
+                                        href={item.target}
+                                        className={`${styles.menuItem} ${pathname === item.target ? styles.active : ""}`}
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        {item.label}
+                                    </ScrambleLink>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className={`${styles.separator} separatorGSAP`} />
+
+                        <div className={`${styles.menuFooter} menuFooterGSAP`}>
+                            <div className={styles.legalLinks}>
+                                <span>&copy; COPYRIGHT 2026</span>
+                                <Link href="/privacy-policy" onClick={() => setIsOpen(false)}>Privacy Policy</Link>
+                                <Link href="/terms" onClick={() => setIsOpen(false)}>Terms and Conditions</Link>
+                            </div>
+                            <div className={styles.socialLinks}>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin size={20} /></a>
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram size={20} /></a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaXTwitter size={20} /></a>
+                                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><FaYoutube size={20} /></a>
+                            </div>
+                        </div>
+                    </div>
+
                     <button
                         className={`${styles.navToggler} ${isOpen ? styles.open : ""}`}
                         onClick={() => setIsOpen((current) => !current)}
@@ -131,22 +229,6 @@ export default function Header() {
                     </a>
                 </div>
             </nav>
-
-            {/* Awwwards Full Screen Menu Overlay */}
-            <div className={styles.fullScreenMenu} ref={menuRef}>
-                <div className={styles.menuItemsList}>
-                    {menuItems.map((item) => (
-                        <div key={item.target} className={styles.menuItemContainer}>
-                            <button
-                                className={`${styles.menuItem} menuItemGSAP`}
-                                onClick={() => handleLinkClick(item.target)}
-                            >
-                                {item.label}
-                            </button>
-                        </div>
-                    ))}
-                </div>
-            </div>
         </div>
     );
 }

@@ -9,7 +9,7 @@ import TeamGallery from "@/components/sections/team";
 import ClientsLoop from "@/components/sections/clients";
 import AwardsShowcase from "@/components/sections/awards";
 import PressLinks from "@/components/sections/press";
-import BookingPortalAndFooter from "@/components/sections/booking-footer";
+import BookingPortalAndFooter from "@/components/layout/footer";
 
 export default function Home() {
     return (
